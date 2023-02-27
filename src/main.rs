@@ -33,11 +33,6 @@ async fn main() -> std::io::Result<()> {
 
 #[cfg(not(feature = "ssr"))]
 fn main() {
-    use leptos::{mount_to_body, view};
-   
-
-    console_error_panic_hook::set_once();
-    _ = console_log::init_with_level(log::Level::Debug);
-    console_error_panic_hook::set_once();
+    
     
 }
