@@ -1,5 +1,4 @@
 use leptos::{view, mount_to, run_scope, create_runtime};
-use leptos_start::app::{SimpleCounter,SimpleCounterProps};
 use wasm_bindgen::JsCast;
 use wasm_bindgen_test::*;
 
@@ -13,13 +12,13 @@ fn clear() {
    
     let document = leptos::document();
     let test_wrapper = document.create_element("section").unwrap();
-    document.body().unwrap().append_child(&test_wrapper);
+    let _ = document.body().unwrap().append_child(&test_wrapper);
 
     // start by rendering our counter and mounting it to the DOM
     // note that we start at the initial value of 10
     mount_to(
         test_wrapper.clone().unchecked_into(),
-        |cx| view! { cx, <div class="hello"/> },
+        |cx| view! { cx, <div/> },
     );
 
     console_log!("Outer {}", test_wrapper.outer_html());
@@ -37,8 +36,7 @@ fn clear() {
             // it's as if we're creating it with a value of 0, right?
             // we can remove the event listeners because they're not rendered to HTML
             view! { cx,
-                <div class="hello">
-                </div>
+                <div/>
             }
             // the view returned an HtmlElement<Div>, which is a smart pointer for
             // a DOM element. So we can still just call .outer_html()
