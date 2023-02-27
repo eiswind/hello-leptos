@@ -46,16 +46,6 @@ fn clear() {
         })
     );
 
-    // There's actually an easier way to do this...
-    // We can just test against a <SimpleCounter/> with the initial value 0
-    assert_eq!(test_wrapper.inner_html(), {
-        let comparison_wrapper = document.create_element("section").unwrap();
-        leptos::mount_to(
-            comparison_wrapper.clone().unchecked_into(),
-            |cx| view! { cx, <SimpleCounter initial_value=0 step=1/>},
-        );
-        comparison_wrapper.inner_html()
-    });
 }
 
 // #[wasm_bindgen_test]
